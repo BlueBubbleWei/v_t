@@ -13,17 +13,24 @@ module.exports = {
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        files: [
+          '**/__tests__/*.{j,t}s?(x)',
+          '**/tests/unit/**/*.spec.{j,t}s?(x)'
+        ],
+        env: {
+          jest: true
+        }
+      }
+    ],
+    singleQuote: true,
+    semi: false, // 结束是否加分号
+    printWidth: 160// 每行最长字符 
   },
   overrides: [
-    {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)'
-      ],
-      env: {
-        jest: true
-      }
-    }
+    
   ]
 }
