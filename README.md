@@ -44,3 +44,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
   8.命令安装：npm i cssnano-preset-advanced --save-dev  
   9.命令安装：npm install  
   10.打开项根目录下找到postcss.conf.js  没找到，但是在package中可以配置 postcss，配置完成会报错，于是新建文件postcss.config.js
+3. Invalid options in vue.config.js: "baseUrl" is not allowed. "vueLoader" is not allowed. "dll" is not allowed 报错 在vue.config。js中对比 part部分
