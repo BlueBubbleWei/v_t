@@ -14,7 +14,7 @@ module.exports = {
   publicPath: '/', //不知道不加./会打包成什么样子
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
-  productionSourceMap: false, // 不知道这个配置项是什么作用
+  productionSourceMap: false, // false是采用压缩加密，并且不产生map文件
   // 配置开发环境
   devServer: {
     port: port,
@@ -24,12 +24,23 @@ module.exports = {
       errors: true
     }
   },
-  // 没懂以下配置
+  // css 配置
+  css: {
+    extract: true, // 是否使用css分离插件 ExtractTextPlugin
+    sourceMap: false, // 开启 CSS source maps?
+    loaderOptions: {
+      css: {}, // 这里的选项会传递给 css-loader
+      postcss: {} // 这里的选项会传递给 postcss-loader
+    }, // css预设器配置项 详见https://cli.vuejs.org/zh/config/#css-loaderoptions
+    modules: false // 启用 CSS modules for all css / pre-processor files.
+  },
+  parallel: require('os').cpus().length > 1, // 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。
+  pwa: {},
   configureWebpack: {
     name: name,
     resolve: {
       alias: {
-        '@': resolve('src')
+        '@': resolve('src') //别名配置
       }
     }
   },
