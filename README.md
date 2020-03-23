@@ -45,3 +45,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
   9.命令安装：npm install  
   10.打开项根目录下找到postcss.conf.js  没找到，但是在package中可以配置 postcss，配置完成会报错，于是新建文件postcss.config.js
 3.配置dev环境创建vue.config.js Invalid options in vue.config.js: "baseUrl" is not allowed. "vueLoader" is not allowed. "dll" is not allowed 报错 在vue.config。js中对比 part部分 (这部分的代码已经删除，原因是：代码老旧，采用本次新提交的代码)_ 
+4. webpack配置参考资料   
+  https://blog.csdn.net/u014440483/article/details/87267160  

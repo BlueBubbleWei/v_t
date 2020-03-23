@@ -1,6 +1,7 @@
 'use strict'
 
 const path = require('path')
+const UglifyPlugin = require('uglifyjs-webpack-plugin')
 // const defautSettings = require('./src/settings.js')
 function resolve (dir) {
   return path.join(__dirname, dir)
@@ -32,18 +33,44 @@ module.exports = {
       css: {}, // 这里的选项会传递给 css-loader
       postcss: {} // 这里的选项会传递给 postcss-loader
     }, // css预设器配置项 详见https://cli.vuejs.org/zh/config/#css-loaderoptions
-    modules: false // 启用 CSS modules for all css / pre-processor files.
+    requireModuleExtension: false // 启用 CSS modules for all css / pre-processor files.
   },
   parallel: require('os').cpus().length > 1, // 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。
   pwa: {},
-  configureWebpack: {
-    name: name,
-    resolve: {
-      alias: {
-        '@': resolve('src') //别名配置
-      }
-    }
-  },
+  // 下面的配置有问题
+  // configureWebpack:(config) => {
+  //   config.optimization = {
+  //     minimizer: [
+  //       new UglifyPlugin({
+  //         uglifyOptions: {
+  //           warnings: false,
+  //           compress: {
+  //             drop_console: true, // console
+  //             drop_debugger: false,
+  //             pure_funcs: ['console.log'] // 移除console
+  //           }
+  //         }
+  //       })
+  //     ]
+  //   }
+  //   Object.assign(config, {
+  //     // 开发生产共同配置
+  //     name: name,
+  //     resolve: {
+  //       alias: {
+  //         '@': path.resolve(__dirname, './src'),//别名配置
+  //       }
+  //     },
+  //   })
+  // },
+  // configureWebpack: {
+  //   name: name,
+  //   resolve: {
+  //     alias: {
+  //       '@': resolve('src') //别名配置
+  //     }
+  //   }
+  // },
   chainWebpack(config) {
     // 不知道为什么去掉
     config.plugins.delete('prelead'),
