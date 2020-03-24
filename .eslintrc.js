@@ -27,8 +27,7 @@ module.exports = {
       }
     ],
     singleQuote: 2,
-    semi: false, // 结束是否加分号
-    printWidth: 160// 每行最长字符 
+    semi: 0 // 结束是否加分号
   },
   overrides: [
     
