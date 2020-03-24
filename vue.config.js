@@ -12,7 +12,7 @@ const port = '9999'
 
 // 主要配置项
 module.exports = {
-  publicPath: '/', //不知道不加./会打包成什么样子
+  publicPath: './', //不知道不加./会打包成什么样子
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false, // false是采用压缩加密，并且不产生map文件
@@ -72,6 +72,7 @@ module.exports = {
   //   }
   // },
   chainWebpack(config) {
+    config.plugin('workbox')
     // 不知道为什么去掉
     config.plugins.delete('prelead'),
     config.plugins.delete('prefetch')
@@ -145,5 +146,20 @@ module.exports = {
           config.optimization.runtimeChunk('single')
         }
       )
+  },
+  pwa: {
+    name: 'My App',
+    themeColor: '#4DBA87',
+    msTileColor: '#000000',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black',
+
+    // configure the workbox plugin
+    workboxPluginMode: 'InjectManifest',
+    workboxOptions: {
+      // swSrc is required in InjectManifest mode.
+      swSrc: './public/sw.js',
+      // ...other Workbox options...
+    }
   }
 }

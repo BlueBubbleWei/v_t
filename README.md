@@ -46,4 +46,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
   10.打开项根目录下找到postcss.conf.js  没找到，但是在package中可以配置 postcss，配置完成会报错，于是新建文件postcss.config.js
 3.配置dev环境创建vue.config.js Invalid options in vue.config.js: "baseUrl" is not allowed. "vueLoader" is not allowed. "dll" is not allowed 报错 在vue.config。js中对比 part部分 (这部分的代码已经删除，原因是：代码老旧，采用本次新提交的代码)_ 
 4. webpack配置参考资料   
-  https://blog.csdn.net/u014440483/article/details/87267160  
+  https://blog.csdn.net/u014440483/article/details/87267160 
+5. 配置wpa  
+参考资料   
+  1. https://www.jianshu.com/p/917e3e160030  创建maninfest.json
+  2. https://blog.csdn.net/wangzl1163/article/details/99633770 安装插件
+  3. https://blog.csdn.net/qq_40128367/article/details/82890811 sw.js配置
+6. eslint配置 https://segmentfault.com/a/1190000015315545?utm_source=tag-newest  
+
